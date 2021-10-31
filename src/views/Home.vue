@@ -1,9 +1,15 @@
 <template>
-  <h1>Home</h1>
+  <div>
+    <!-- <small>Home</small> -->
+    <Destacados />
+  </div>
 </template>
 
 <script>
 export default {
   name: "Home",
+  components: {
+    Destacados: () => import("../components/Home/Destacados.vue"),
+  },
 };
 </script>
