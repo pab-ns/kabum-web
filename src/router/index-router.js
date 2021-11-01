@@ -26,6 +26,21 @@ const routes = [
     name: "Buscador",
     component: () => import("../views/Buscador.vue"),
   },
+  {
+    path: "/juegos",
+    name: "juegos",
+    component: () => import("../views/juegos.vue"),
+  },
+  {
+    path: "/juego",
+    name: "Juego",
+    component: () => import("../views/juego.vue"),
+  },
+  {
+    path: "/juegos/:id",
+    name: "detallejuego",
+    component: () => import("../views/detallejuego.vue"),
+  },
 ];
 
 const router = new VueRouter({

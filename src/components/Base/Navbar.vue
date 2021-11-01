@@ -6,7 +6,7 @@
     <v-spacer></v-spacer>
     <v-toolbar-items>
       <v-btn text to="/categorias">Categorias</v-btn>
-      <v-btn text to="/buscador">Buscador</v-btn>
+      <v-btn text to="/juegos">Juegos</v-btn>
       <v-btn text>Favoritos</v-btn>
       <v-btn text>
         <span>Iniciar Sesión</span> <v-icon>mdi-login</v-icon>
