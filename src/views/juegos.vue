@@ -25,7 +25,7 @@
 
 <script>
 export default {
-  name: "juegos",
+  name: "Juegos",
   mounted() {
     this.$store.dispatch("juegosModule/getAllJuegos");
   },

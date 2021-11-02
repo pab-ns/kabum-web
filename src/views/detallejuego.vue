@@ -35,7 +35,7 @@
 <script>
 import Firebase from "firebase";
 export default {
-  name: "detallejuego",
+  name: "Detallejuego",
   beforeRouteEnter(to, from, next) {
     Firebase.firestore()
       .collection("juegos")

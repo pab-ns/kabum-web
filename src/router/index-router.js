@@ -28,18 +28,13 @@ const routes = [
   },
   {
     path: "/juegos",
-    name: "juegos",
-    component: () => import("../views/juegos.vue"),
-  },
-  {
-    path: "/juego",
-    name: "Juego",
-    component: () => import("../views/juego.vue"),
+    name: "Juegos",
+    component: () => import("../views/Juegos.vue"),
   },
   {
     path: "/juegos/:id",
-    name: "detallejuego",
-    component: () => import("../views/detallejuego.vue"),
+    name: "Detallejuego",
+    component: () => import("../views/Detallejuego.vue"),
   },
 ];
 
