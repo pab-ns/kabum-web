@@ -1,21 +1,24 @@
 <template>
   <v-app-bar app color="primary" dark>
-    <img :src="require('../../assets/kabum.png')" height="30" />
+    <router-link to="/">
+      <img :src="require('../../assets/kabum.png')" height="30" />
+    </router-link>
     <v-spacer></v-spacer>
     <v-toolbar-items>
-      <v-btn text>Categorias</v-btn>
-      <v-btn text>Buscador</v-btn>
+      <v-btn text to="/categorias">Categorias</v-btn>
+      <v-btn text to="/juegos">Juegos</v-btn>
       <v-btn text>Favoritos</v-btn>
-      <v-btn text>
-        <span>Iniciar Sesión</span> <v-icon>mdi-login</v-icon>
-      </v-btn>
+
+      <SignInDialog />
     </v-toolbar-items>
   </v-app-bar>
 </template>
 
 <script>
 export default {
-  name: "Navbar",
+  components: {
+    SignInDialog: () => import("../Sign/SignInDialog.vue"),
+  },
 };
 </script>
 
