@@ -8,16 +8,17 @@
       <v-btn text to="/categorias">Categorias</v-btn>
       <v-btn text to="/juegos">Juegos</v-btn>
       <v-btn text>Favoritos</v-btn>
-      <v-btn text>
-        <span>Iniciar Sesión</span> <v-icon>mdi-login</v-icon>
-      </v-btn>
+
+      <SignInDialog />
     </v-toolbar-items>
   </v-app-bar>
 </template>
 
 <script>
 export default {
-  name: "Navbar",
+  components: {
+    SignInDialog: () => import("../Sign/SignInDialog.vue"),
+  },
 };
 </script>
 
