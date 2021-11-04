@@ -1,5 +1,7 @@
 <template>
   <div>
+    <Destacados />
+    <Info />
     <div>
       <h1>Todos los Juegos</h1>
       <v-slide-group
@@ -91,9 +93,7 @@
         </v-slide-item>
       </v-slide-group>
     </div>
-    <Destacados />
-    <Info />
-    <CompCategoriaA />
+    
   </div>
 </template>
 
@@ -107,7 +107,6 @@ export default {
     GameCard: () => import("../components/Home/GameCard.vue"),
     Destacados: () => import("../components/Home/Destacados.vue"),
     Info: () => import("../components/Home/Info.vue"),
-    CompCategoriaA: () => import("../components/Home/CompCategoriaA.vue"),
   },
   mounted() {
     this.$store.dispatch("juegosModule/getAllJuegos");
