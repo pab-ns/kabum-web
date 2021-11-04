@@ -95,13 +95,14 @@
 </template>
 
 <script>
-import GameCard from "../components/Home/GameCard.vue"
 export default {
   name: "Home",
   data: () => ({
     juegos: [],
   }),
-  components: { GameCard },
+  components: {
+    GameCard: () => import("../components/Home/GameCard.vue"),
+  },
   mounted() {
     this.$store.dispatch("juegosModule/getAllJuegos");
   },
