@@ -29,12 +29,12 @@ const routes = [
   {
     path: "/juegos",
     name: "Juegos",
-    component: () => import("../views/Juegos.vue"),
+    component: () => import("../views/juegos.vue"),
   },
   {
     path: "/juegos/:id",
     name: "Detallejuego",
-    component: () => import("../views/Detallejuego.vue"),
+    component: () => import("../views/detallejuego.vue"),
   },
 ];
 
