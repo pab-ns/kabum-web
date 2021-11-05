@@ -23,5 +23,16 @@ export const juegosModule = {
           context.commit("SET_JUEGOS_DATA", juegos);
         });
     },
+    getAllGames(context) {
+      Firebase.firestore()
+        .collection('juegos')
+        .onSnapshot((documents) => {
+        const games = [];
+        documents.forEach((document) => {
+            games.push({id: document.id, ...document.data() });
+        });
+        context.commit('SET_JUEGOS_DATA', games);
+        });
+    }
   },
 };
