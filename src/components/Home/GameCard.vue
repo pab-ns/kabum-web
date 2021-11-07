@@ -4,6 +4,7 @@
           class="ma-4 align text-center"
           height="270px"
           width="150px"
+          @click="gameDetails(value)"
         >
             <v-img
               height="150px"
@@ -24,7 +25,14 @@
 <script>
 export default {
   name: "GameCard",
-  props: ["value"],
+  props: {
+        value: { type: Object, required: true }
+    },
+  methods: {
+    gameDetails(value) {
+        this.$router.push(`/juegos/${value.id}`);
+    },
+  }
 }
 </script>
 
