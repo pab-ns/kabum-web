@@ -21,6 +21,13 @@ const routes = [
     name: "Categorias",
     component: () => import("../views/Categorias.vue"),
   },
+
+  {
+    path: "/categorias/:id",
+    name: "Categorias",
+    component: () => import("../views/GamesCategories.vue"),
+  },
+
   {
     path: "/buscador",
     name: "Buscador",
@@ -42,6 +49,9 @@ const router = new VueRouter({
   mode: "history",
   base: process.env.BASE_URL,
   routes,
+  scrollBehavior() {
+    document.getElementById('app').scrollIntoView();
+  }
 });
 
 export default router;
