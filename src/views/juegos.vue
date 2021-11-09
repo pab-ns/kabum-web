@@ -1,6 +1,6 @@
 <template>
   <div>
-    <h1>Juegos</h1>
+    <h1>Administrador de Juegos</h1>
 
     <v-card-title>
       <v-text-field

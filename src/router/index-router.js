@@ -34,6 +34,26 @@ const routes = [
     component: () => import("../views/Buscador.vue"),
   },
   {
+    path: "/buscador",
+    name: "Buscador",
+    component: () => import("../views/Buscador.vue"),
+  },
+  {
+    path: "/admin",
+    name: "Admin",
+    component: () => import("../views/Admin.vue"),
+  },
+  {
+    path: "/admin",
+    name: "Admin",
+    component: () => import("../views/Admin.vue"),
+  },
+  {
+    path: "/admin/:id",
+    name: "Edit",
+    component: () => import("../views/EditGame.vue"),
+  },
+  {
     path: "/juegos",
     name: "Juegos",
     component: () => import("../views/juegos.vue"),
