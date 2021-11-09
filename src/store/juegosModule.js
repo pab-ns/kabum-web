@@ -4,6 +4,8 @@ export const juegosModule = {
   namespaced: true,
   state: {
     data: [],
+    categoriasData: [],
+    filteredByCategory: "",
     filteredByAbility: "",
     filteredByAge: "",
     filteredByWeather: "",
@@ -39,9 +41,22 @@ export const juegosModule = {
       }
     },
   },
+  getters:{
+    gamesByCategory(state) {
+      return state.data.filter((game) => 
+        game.categoria.includes(state.filteredByCategory.toLowerCase()))
+    },
+  },
   mutations: {
     SET_JUEGOS_DATA(state, newJuegosData) {
       state.data = newJuegosData;
+    },
+
+    FILTER_BY_CATEGORY(state, newFilter) {
+      state.filteredByCategory = newFilter
+    },
+    SET_CATEGORIAS_DATA(state, newCategoriasData) {
+      state.categoriasData = newCategoriasData
     },
     FILTER_BY_ABILITY(state, newFilter) {
       state.filteredByAbility = newFilter
@@ -65,6 +80,18 @@ export const juegosModule = {
           });
           context.commit("SET_JUEGOS_DATA", juegos);
         });
+    }, 
+    getAllCategorias(context) {
+      Firebase.firestore()
+        .collection("categorias")
+        .get()
+        .then((documents) => {
+          const categorias = [];
+          documents.forEach((document) => {
+            categorias.push({ id: document.id, ...document.data() });
+          });
+          context.commit("SET_CATEGORIAS_DATA", categorias);
+        });
     },
     getAllGames(context) {
       Firebase.firestore()
@@ -86,5 +113,8 @@ export const juegosModule = {
     filterByWeather(context, newFilter) {
       context.commit('FILTER_BY_WEATHER', newFilter)
     },
-  },
+    filterByCategory(context, newFilter) {
+      context.commit('FILTER_BY_CATEGORY', newFilter)
+    },
+  },    
 };
