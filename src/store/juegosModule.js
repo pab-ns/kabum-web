@@ -43,17 +43,7 @@ export const juegosModule = {
         });
     },
 
-    getAllGames(context) {
-      Firebase.firestore()
-        .collection('juegos')
-        .onSnapshot((documents) => {
-        const games = [];
-        documents.forEach((document) => {
-            games.push({id: document.id, ...document.data() });
-        });
-        context.commit('SET_JUEGOS_DATA', games);
-        });
-    },
+  
 
     getAllCategorias(context) {
       Firebase.firestore()
