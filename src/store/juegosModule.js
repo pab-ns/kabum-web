@@ -40,13 +40,13 @@ export const juegosModule = {
           )
       }
     },
-  },
-  getters:{
+    
     gamesByCategory(state) {
       return state.data.filter((game) => 
         game.categoria.includes(state.filteredByCategory.toLowerCase()))
     },
   },
+  
   mutations: {
     SET_JUEGOS_DATA(state, newJuegosData) {
       state.data = newJuegosData;

@@ -1,5 +1,5 @@
 <template>
-  <v-footer app dark padless>
+  <v-footer app dark padless absolute>
     <v-card class="flex" flat tile>
       <v-card-title class="primary">
         <v-img src="../../assets/kabum.png" max-width="125" />

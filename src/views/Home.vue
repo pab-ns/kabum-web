@@ -17,7 +17,7 @@
       <v-select
         class="my-5"
         :items="abilities"
-        label="Buscar por edad"
+        label="Buscar por habilidad"
         rounded
         dense
         outlined
