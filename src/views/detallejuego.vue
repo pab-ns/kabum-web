@@ -8,7 +8,7 @@
         </v-col>
         <v-col cols="6" class="mt-16">
           <h1>{{ juego.nombre }}</h1>
-          <h2>$ {{ juego.precio }}</h2>
+          <h2>$ {{ juego.precio.toLocaleString('de-DE') }}</h2>
           <br />
           <p>{{ juego.descripcion }}</p>
           <small>
@@ -18,7 +18,7 @@
             </span>
           </small>
           <br />
-          <small> <strong>Categoría(s): </strong>{{ juego.categoria }} </small>
+          <small> <strong>Categoría(s): </strong>{{ juego.categoria[0] }}-{{ juego.categoria[1] }}</small>
           <br />
           <small> <strong>Ideal para un día </strong>{{ juego.clima }} </small>
           <br />
