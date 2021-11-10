@@ -1,12 +1,16 @@
 <template>
   <div>
+    <Api />
     <Destacados />
     <Info />
 
     <div>
       <h1>Todos los Juegos</h1>
       <v-slide-group class="pa-4" show-arrows>
-        <v-slide-item v-for="juego in $store.state.juegosModule.data" :key="juego.codigo">
+        <v-slide-item
+          v-for="juego in $store.state.juegosModule.data"
+          :key="juego.codigo"
+        >
           <GameCard :value="juego" />
         </v-slide-item>
       </v-slide-group>
@@ -25,12 +29,12 @@
         @input="handleAbilityInput"
       ></v-select>
       <v-slide-group class="pa-4" show-arrows>
-        <v-slide-item  v-for="game in abilityGamesFilter" :key="game.codigo">
+        <v-slide-item v-for="game in abilityGamesFilter" :key="game.codigo">
           <GameCard :value="game" />
         </v-slide-item>
       </v-slide-group>
     </div>
-    
+
     <div>
       <h2>Buscar Juegos Según Edad</h2>
       <v-select
@@ -68,7 +72,6 @@
         </v-slide-item>
       </v-slide-group>
     </div>
-
   </div>
 </template>
 
@@ -79,33 +82,41 @@ export default {
     GameCard: () => import("../components/Home/GameCard.vue"),
     Destacados: () => import("../components/Home/Destacados.vue"),
     Info: () => import("../components/Home/Info.vue"),
+    Api: () => import("../components/Home/Api.vue"),
   },
   data: () => ({
-    abilities: ['Memoria', 'Deducción', 'Creatividad', 'Negociación', 'Cooperación', 'Narración'],
-    ages: ['De 5 a 9 años', 'De 10 a 14 años', 'Desde 15 años',],
-    weather: ['Soleado', 'Nublado', 'Lluvioso',],
+    abilities: [
+      "Memoria",
+      "Deducción",
+      "Creatividad",
+      "Negociación",
+      "Cooperación",
+      "Narración",
+    ],
+    ages: ["De 5 a 9 años", "De 10 a 14 años", "Desde 15 años"],
+    weather: ["Soleado", "Nublado", "Lluvioso"],
     juegos: [],
   }),
   methods: {
-    handleAbilityInput (event) {
-      this.$store.dispatch('juegosModule/filterByAbility', event)
+    handleAbilityInput(event) {
+      this.$store.dispatch("juegosModule/filterByAbility", event);
     },
-    handleAgeInput (event) {
-      this.$store.dispatch('juegosModule/filterByAge', event)
+    handleAgeInput(event) {
+      this.$store.dispatch("juegosModule/filterByAge", event);
     },
-    handleWeatherInput (event) {
-      this.$store.dispatch('juegosModule/filterByWeather', event)
+    handleWeatherInput(event) {
+      this.$store.dispatch("juegosModule/filterByWeather", event);
     },
   },
   computed: {
-    abilityGamesFilter(){
-      return this.$store.getters['juegosModule/gamesByAbility']
-    }, 
-    ageGamesFilter(){
-      return this.$store.getters['juegosModule/gamesByAge']
+    abilityGamesFilter() {
+      return this.$store.getters["juegosModule/gamesByAbility"];
     },
-    weatherGamesFilter(){
-      return this.$store.getters['juegosModule/gamesByWeather']
+    ageGamesFilter() {
+      return this.$store.getters["juegosModule/gamesByAge"];
+    },
+    weatherGamesFilter() {
+      return this.$store.getters["juegosModule/gamesByWeather"];
     },
   },
   mounted() {

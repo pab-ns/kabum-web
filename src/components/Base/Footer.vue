@@ -14,7 +14,7 @@
       </v-card-title>
 
       <v-card-text class="orange py-2 white--text text-center">
-        {{ new Date().getFullYear() }} — <strong>Vuetify</strong>
+        {{ new Date().getFullYear() }} - <strong>KABUM!</strong>
       </v-card-text>
     </v-card>
   </v-footer>
