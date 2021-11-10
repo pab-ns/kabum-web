@@ -1,8 +1,8 @@
 <template>
   <div>
-    <Api />
     <Destacados />
     <Info />
+    <Api />
 
     <div>
       <h1>Todos los Juegos</h1>
