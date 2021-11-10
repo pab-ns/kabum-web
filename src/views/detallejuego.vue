@@ -8,7 +8,12 @@
         </v-col>
         <v-col cols="6" class="mt-16">
           <h1>{{ juego.nombre }}</h1>
+<<<<<<< HEAD
           <h2>$ {{ juego.precio.toLocaleString('de-DE') }}</h2>
+=======
+          <h2>$ {{ juego.precio }}</h2>
+          <!-- <h2>$ {{ juego.precio.toString().toLocaleLowerCase() }}</h2> -->
+>>>>>>> 9134d83644f2bc3af9f779dfee9241673de1df1e
           <br />
           <p>{{ juego.descripcion }}</p>
           <small>
@@ -25,7 +30,9 @@
           <small> <strong>Código: </strong>{{ juego.codigo }} </small>
           <br />
           <br />
-          <v-btn color="primary" large> Agregar a Favoritos </v-btn>
+          <v-btn color="primary" large @click="agregarJuegoFavoritos">
+            Agregar a Favoritos
+          </v-btn>
         </v-col>
       </v-layout>
     </v-container>
@@ -50,6 +57,11 @@ export default {
   data: () => ({
     juego: "",
   }),
+  methods: {
+    agregarJuegoFavoritos() {
+      console.log({ producto: this.producto });
+    },
+  },
 };
 </script>
 
