@@ -1,5 +1,6 @@
 <template>
   <div>
+    <Api />
     <Destacados />
     <Info />
 
@@ -81,6 +82,7 @@ export default {
     GameCard: () => import("../components/Home/GameCard.vue"),
     Destacados: () => import("../components/Home/Destacados.vue"),
     Info: () => import("../components/Home/Info.vue"),
+    Api: () => import("../components/Home/Api.vue"),
   },
   data: () => ({
     abilities: [
