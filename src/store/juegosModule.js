@@ -50,7 +50,7 @@ export const juegosModule = {
         return state.data;
       } else if(state.filteredByTemperature >= 25) {
         return state.data.filter(game => game.clima === "caluroso");
-      } else if(state.filteredByTemperature < 25) {
+      } else if(state.filteredByTemperature < 25 && state.filteredByTemperature > 15) {
           return state.data.filter(game => game.clima === "templado")
       } else if(state.filteredByTemperature < 15) {
           return state.data.filter(game => game.clima === "frío")
