@@ -94,7 +94,7 @@ export default {
       "Narración",
     ],
     ages: ["De 5 a 9 años", "De 10 a 14 años", "Desde 15 años"],
-    weather: ["Soleado", "Nublado", "Lluvioso"],
+    weather: ["Caluroso", "Templado", "Frío"],
     juegos: [],
   }),
   methods: {

@@ -16,6 +16,11 @@
         <br />
         Recomendamos los siguientes juegos:
       </h2>
+      <v-slide-group class="pa-4" show-arrows>
+        <v-slide-item v-for="game in temperatureGamesFilter" :key="game.codigo">
+          <GameCard :value="game" />
+        </v-slide-item>
+      </v-slide-group>
       <h2 v-if="errorStr" class="text-center red--text">
         Lo sentimos, ha ocurrido el siguiente error: {{ errorStr }}
       </h2>
@@ -25,6 +30,9 @@
 
 <script>
 export default {
+  components: {
+    GameCard: () => import("./GameCard.vue"),
+  },
   name: "Api",
   data: () => ({
     location: null,
@@ -33,6 +41,7 @@ export default {
     ciudad: "",
     geoLat: 0,
     geoLon: 0,
+    temperature: 0,
   }),
 
   methods: {
@@ -44,10 +53,18 @@ export default {
           // esto devuelve una promsesa
           return response.json();
         })
-        .then((json) => (this.ciudad = json));
+        .then((json) => (this.ciudad = json))
+        .then((json) => (this.temperature = json.temp_c))
+    },
+    changeTemperature() {
+      this.$store.dispatch('juegosModule/filterByTemperature', this.temperature)
     },
   },
-
+  computed: {
+    temperatureGamesFilter(){
+      return this.$store.getters['juegosModule/gamesByTemperature']
+    },
+  },
   created() {
     // API GEO
     //do we support geolocation
