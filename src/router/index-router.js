@@ -63,6 +63,11 @@ const routes = [
     name: "Detallejuego",
     component: () => import("../views/detallejuego.vue"),
   },
+  {
+    path: "/favoritos",
+    name: "Favoritos",
+    component: () => import("../views/Favoritos.vue"),
+  },
 ];
 
 const router = new VueRouter({
@@ -70,8 +75,8 @@ const router = new VueRouter({
   base: process.env.BASE_URL,
   routes,
   scrollBehavior() {
-    document.getElementById('app').scrollIntoView();
-  }
+    document.getElementById("app").scrollIntoView();
+  },
 });
 
 export default router;

@@ -7,7 +7,7 @@
     <v-toolbar-items>
       <v-btn text to="/categorias">Categorias</v-btn>
       <v-btn text to="/juegos">Juegos</v-btn>
-      <v-btn text>Favoritos</v-btn>
+      <v-btn text to="/favoritos">Favoritos</v-btn>
       <v-btn text to="/admin">Administrador</v-btn>
 
       <SignInDialog />
