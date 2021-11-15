@@ -1,18 +1,10 @@
 <template>
   <div>
-    <!-- <h2>API GEO</h2>
-    <p>Latitud: {{ geoLat }}</p>
-    <p>Longitud: {{ geoLon }}</p>
-
-    <h2>API Weather</h2>
-    <p>Clima según mi locación: {{ ciudad.temp_c }}</p>
-    <pre>{{ ciudad }}</pre> -->
-
     <v-container fluid>
       <h2 class="text-center blue--text font-weight-bold">
         En tu ciudad, actualmente, está
         <span class="orange--text">{{ ciudad.wx_desc }}</span> con una
-        temperatura de <span class="orange--text">{{ ciudad.temp_c }}ºC</span>.
+        temperatura de <span class="orange--text">{{ temperature }}ºC</span>.
         <br />
         Recomendamos los siguientes juegos:
       </h2>
@@ -43,7 +35,6 @@ export default {
     geoLon: 0,
     temperature: 0,
   }),
-
   methods: {
     fetchClima() {
       fetch(
@@ -57,7 +48,7 @@ export default {
         .then((json) => (this.temperature = json.temp_c))
     },
     changeTemperature() {
-      this.$store.dispatch('juegosModule/filterByTemperature', this.temperature)
+      this.$store.dispatch('juegosModule/filterByTemperature', this.temperature);
     },
   },
   computed: {
@@ -92,6 +83,9 @@ export default {
       }
     );
   },
+  beforeUpdate(){
+    this.changeTemperature();
+  }
 };
 </script>
 

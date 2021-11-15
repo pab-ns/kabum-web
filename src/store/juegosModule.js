@@ -9,7 +9,7 @@ export const juegosModule = {
     filteredByAbility: "",
     filteredByAge: "",
     filteredByWeather: "",
-    filteredByTemperature: "",
+    filteredByTemperature: 0,
   },
   getters: {
     gamesByAbility(state) {
@@ -27,7 +27,7 @@ export const juegosModule = {
       } else if (state.filteredByAge === 'De 5 a 9 años') {
           return state.data.filter(game => game.edadmin < 10);
       } else if(state.filteredByAge === 'De 10 a 14 años') {
-          return state.data.filter(game => game.edadmin < 15)
+          return state.data.filter(game => game.edadmin >= 10 && game.edadmin < 15)
       } else if(state.filteredByAge === 'Desde 15 años') {
           return state.data.filter(game => game.edadmin >= 15)
       }
@@ -46,14 +46,13 @@ export const juegosModule = {
         game.categoria.includes(state.filteredByCategory.toLowerCase()))
     },
     gamesByTemperature(state) {
-      if (state.filteredByWeatherss === '') {
-        return state.data;
-      } else if(state.filteredByTemperature >= 25) {
-        return state.data.filter(game => game.clima === "caluroso");
-      } else if(state.filteredByTemperature < 25 && state.filteredByTemperature > 15) {
+      console.log(state.filterByTemperature);
+      if (state.filteredByTemperature <= 14) {
+        return state.data.filter(game => game.clima === "frío");
+      } else if(state.filteredByTemperature > 15 && state.filteredByTemperature <= 24) {
           return state.data.filter(game => game.clima === "templado")
-      } else if(state.filteredByTemperature < 15) {
-          return state.data.filter(game => game.clima === "frío")
+      } else if(state.filteredByTemperature > 25) {
+          return state.data.filter(game => game.clima === "caluroso")
       }
     },
   },
@@ -79,7 +78,7 @@ export const juegosModule = {
       state.filteredByWeather = newFilter
     },
     FILTER_BY_TEMPERATURE(state, newFilter) {
-      state.filteredByTemperature = newFilter
+      state.filteredByTemperature = newFilter;
     },
   },
   actions: {
@@ -130,7 +129,7 @@ export const juegosModule = {
     filterByCategory(context, newFilter) {
       context.commit('FILTER_BY_CATEGORY', newFilter)
     },
-    filteredByTemperature(context, newFilter) {
+    filterByTemperature(context, newFilter) {
       context.commit('FILTER_BY_TEMPERATURE', newFilter)
     },
   },    
