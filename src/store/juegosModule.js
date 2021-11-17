@@ -47,7 +47,7 @@ export const juegosModule = {
     },
     gamesByTemperature(state) {
       console.log(state.filterByTemperature);
-      if (state.filteredByTemperature <= 14) {
+      if (state.filteredByTemperature <= 15) {
         return state.data.filter(game => game.clima === "frío");
       } else if(state.filteredByTemperature > 15 && state.filteredByTemperature <= 24) {
           return state.data.filter(game => game.clima === "templado")

@@ -1,10 +1,16 @@
 import Vue from "vue";
 import VueRouter from "vue-router";
 import Home from "../views/Home.vue";
+/* import Store from "../store/sessionModule"; */
 
 Vue.use(VueRouter);
 
 const routes = [
+  {
+    path: '*',
+    redirect: '/'
+  },
+
   {
     path: "/",
     name: "Home",
@@ -20,6 +26,14 @@ const routes = [
     path: "/categorias",
     name: "Categorias",
     component: () => import("../views/Categorias.vue"),
+    meta: {
+      requiredLogin: true,
+    },
+  },
+  {
+    path: "/admin",
+    name: "Administrador",
+    component: () => import("../views/Admin.vue"),
   },
 
   {
@@ -27,27 +41,12 @@ const routes = [
     name: "Categorias",
     component: () => import("../views/GamesCategories.vue"),
   },
+  {
+    path: "/buscador",
+    name: "Buscador",
+    component: () => import("../views/Buscador.vue"),
+  },
 
-  {
-    path: "/buscador",
-    name: "Buscador",
-    component: () => import("../views/Buscador.vue"),
-  },
-  {
-    path: "/buscador",
-    name: "Buscador",
-    component: () => import("../views/Buscador.vue"),
-  },
-  {
-    path: "/admin",
-    name: "Admin",
-    component: () => import("../views/Admin.vue"),
-  },
-  {
-    path: "/admin",
-    name: "Admin",
-    component: () => import("../views/Admin.vue"),
-  },
   {
     path: "/admin/:id",
     name: "Edit",
@@ -68,6 +67,7 @@ const routes = [
     name: "Favoritos",
     component: () => import("../views/Favoritos.vue"),
   },
+
 ];
 
 const router = new VueRouter({
@@ -78,5 +78,17 @@ const router = new VueRouter({
     document.getElementById("app").scrollIntoView();
   },
 });
+
+/* router.beforeEach((to, from, next) => {
+  if (to.meta.requiredLogin)
+    if (Store.state.sessionModule.user) {
+      next();
+    } else {
+      next("/");
+    }
+  else {
+    next();
+  }
+}); */
 
 export default router;

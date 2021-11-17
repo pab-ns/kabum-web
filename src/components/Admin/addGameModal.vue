@@ -7,6 +7,7 @@
             <v-card-text>
                 <v-container>
                     <v-form
+                        @submit.prevent
                         ref="form"
                         lazy-validation
                     >
@@ -207,6 +208,9 @@ export default {
             Firebase.firestore()
                 .collection("juegos")
                 .add(this.game)
+                .catch(() => {
+                    alert("Hubo un error, intente nuevamente.");
+                });
         },
         reset () {
             this.$refs.form.reset()
