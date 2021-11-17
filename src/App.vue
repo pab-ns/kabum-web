@@ -21,6 +21,9 @@ export default {
   },
 
   data: () => ({}),
+   mounted() {
+    this.$store.dispatch("sessionModule/subscribeToAuthStateChange");
+  },
 };
 </script>
 

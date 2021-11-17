@@ -1,5 +1,5 @@
 <template>
-  <v-carousel cycle height="400" hide-delimiter-background show-arrows-on-hover>
+  <v-carousel cycle height="auto" hide-delimiter-background show-arrows-on-hover>
     <router-link v-for="(item, i) in items" :key="i" link :to="item.to">
       <v-carousel-item :src="item.src"> </v-carousel-item>
     </router-link>
