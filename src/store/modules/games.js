@@ -1,6 +1,6 @@
 import Firebase from "firebase";
 
-export const juegosModule = {
+export const gamesModule = {
   namespaced: true,
   state: {
     data: [],

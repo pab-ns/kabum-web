@@ -1,4 +1,4 @@
-<template>
+<template> 
   <div>
     <!--<h1>Detalle Juego: {{ $route.params.id }}</h1>-->
     <v-container>
@@ -72,7 +72,7 @@ export default {
   },
   methods: {
     agregarJuegoAFavorito() {
-      this.$store.dispatch("favoritosModule/agregarFavorito", this.juego);
+      this.$store.dispatch("favorites/agregarFavorito", this.juego);
       this.JuegoAgregadoAFavorito = true;
     },
   },

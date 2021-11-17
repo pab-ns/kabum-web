@@ -10,7 +10,7 @@
         <v-data-table
         
         :headers="headers"
-        :items="$store.state.juegosModule.data"
+        :items="$store.state.games.data"
         >
             <template v-slot:[`item.nombre`]="{ item }">
                 <v-chip @click="gameDetails(item)">{{ item.nombre }}</v-chip>
@@ -66,7 +66,7 @@ import Firebase from "firebase";
 export default {
   name: "Juegos",
   components: {
-    AddGameModal: () => import('../components/Admin/addGameModal.vue'),
+    AddGameModal: () => import('../components/Admin/AddGameModal.vue'),
   },
   data: () => ({
     showAddGame: false,
@@ -103,7 +103,7 @@ export default {
     },
   },
   mounted() {
-    this.$store.dispatch("juegosModule/getAllGames");
+    this.$store.dispatch("games/getAllGames");
   },
 };
 </script>

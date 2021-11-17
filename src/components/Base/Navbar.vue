@@ -12,8 +12,8 @@
             </v-btn>
           </v-row>
         </v-col>
-        <div v-if="$store.state.sessionModule.user !== null">
-            <span>{{ $store.state.sessionModule.user.email }}</span>
+        <div v-if="$store.state.session.user !== null">
+            <span>{{ $store.state.session.user.email }}</span>
             <v-btn icon @click="logout">
                 <v-icon>mdi-logout</v-icon>
             </v-btn>
@@ -45,31 +45,13 @@ export default {
   data: () => ({
         drawer: false,
         group: null,
-/*         links: [
-            {
-                text: "Categorias",
-                route: "/categorias",
-            },
-            {
-                text: "Buscador",
-                route: "/juegos",
-            },
-            {
-                text: "Favoritos",
-                route: "/favoritos",
-            },
-            {
-                text: "Administrador",
-                route: "/admin",
-            },
-        ], */
     }),
   methods: {
       logout() {
         Firebase.auth()
           .signOut()
           .then(() => {
-              this.$store.dispatch("sessionModule/logoutUser");
+              this.$store.dispatch("session/logoutUser");
               this.$router.push("/");
           });
       }
@@ -83,17 +65,17 @@ export default {
             },
             {
                 text: "Buscador",
-                route: "/juegos",
+                route: "/buscador",
             },
       ];
-      const user = this.$store.state.sessionModule.user
-      if (user && this.$store.getters["sessionModule/isAdmin"]) {
+      const user = this.$store.state.session.user
+      if (user && this.$store.getters["session/isAdmin"]) {
         links.push({
           text: "Administrador",
           route: "/admin",
         });
       }
-      if (user && this.$store.getters["sessionModule/isUser"]) {
+      if (user && this.$store.getters["session/isUser"]) {
         links.push({
           text: "Favoritos",
           route: "/favoritos",

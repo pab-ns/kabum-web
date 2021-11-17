@@ -1,9 +1,9 @@
 <template>
   <div>
-    <h1>Favoritos</h1>
+    <h1>Favoritos</h1> 
     <br />
-    <JuegoFavorito
-      v-for="(juego, $index) in $store.state.favoritosModule.todosLosFavoritos"
+    <FavoriteGame
+      v-for="(juego, $index) in $store.state.favorites.todosLosFavoritos"
       :key="$index"
       :juego="juego"
     />
@@ -12,7 +12,7 @@
       <h2 class="font-weight-bold">
         Total: $
         {{
-          $store.getters["favoritosModule/totalFavoritos"].toLocaleString(
+          $store.getters["favorites/totalFavoritos"].toLocaleString(
             "de-DE"
           )
         }}
@@ -25,13 +25,13 @@
 </template>
 
 <script>
-import JuegoFavorito from "../components/Favoritos/JuegoFavorito.vue";
+import FavoriteGame from "../components/Favorites/FavoriteGame.vue";
 export default {
   name: "Favoritos",
-  components: { JuegoFavorito },
+  components: { FavoriteGame },
   methods: {
     async enviarPeticionJuegos() {
-      await this.$store.dispatch("favoritosModule/solicitudJuegos");
+      await this.$store.dispatch("favorites/solicitudJuegos");
       alert(
         "Hemos enviado la solicitud para tu juegos. Te responderemos dentro de las próximas 24 horas."
       );

@@ -64,7 +64,7 @@ export default {
             Firebase.auth()
             .signInWithEmailAndPassword(this.form.email, this.form.password)
             .then((response) => {
-                this.$store.dispatch("sessionModule/setCurrentUser", {
+                this.$store.dispatch("session/setCurrentUser", {
                     email: response.user.email,
                 });
                 this.$router.push("/");

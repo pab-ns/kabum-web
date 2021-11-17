@@ -16,7 +16,7 @@
               x-small
               outlined
               class="mx-1"
-              @click="$store.dispatch('favoritosModule/agregarFavorito', juego)"
+              @click="$store.dispatch('favorites/agregarFavorito', juego)"
             >
               <v-icon>mdi-plus</v-icon>
             </v-btn>
@@ -26,7 +26,7 @@
               x-small
               outlined
               class="mx-1"
-              @click="$store.dispatch('favoritosModule/restarFavorito', juego)"
+              @click="$store.dispatch('favorites/restarFavorito', juego)"
             >
               <v-icon>mdi-minus</v-icon>
             </v-btn>
@@ -55,4 +55,4 @@ export default {
 };
 </script>
 
-<style></style>
+<style></style> 

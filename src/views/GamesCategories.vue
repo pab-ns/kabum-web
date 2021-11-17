@@ -14,23 +14,23 @@
 import Firebase from "firebase";
 export default {
     components: {
-        CategoryGameCard: () => import("../components/categorias/CategoryGameCard.vue")
+        CategoryGameCard: () => import("../components/Categories/CategoryGameCard.vue")
     },
     data: () => ({
         categoria: "",
     }),
     methods: {
         handleCategory (event) {
-            this.$store.dispatch('juegosModule/filterByCategory', event)
+            this.$store.dispatch('games/filterByCategory', event)
         },
     },
     computed: {
         categoryGamesFilter(){
-            return this.$store.getters['juegosModule/gamesByCategory']
+            return this.$store.getters['games/gamesByCategory']
         }, 
     },
     mounted() {
-        this.$store.dispatch("juegosModule/getAllJuegos");
+        this.$store.dispatch("games/getAllGames");
     },
     beforeRouteEnter(to, from, next) {
     Firebase.firestore()
@@ -42,7 +42,7 @@ export default {
           viewModel.categoria = { id: document.id, ...document.data() };
         });
         next((viewModel) => {
-          viewModel.$store.dispatch('juegosModule/filterByCategory', viewModel.categoria.nombre)
+          viewModel.$store.dispatch('games/filterByCategory', viewModel.categoria.nombre)
         });
       });
     },

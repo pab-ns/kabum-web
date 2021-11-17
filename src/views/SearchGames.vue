@@ -1,6 +1,6 @@
 <template>
   <div>
-    <h1>Administrador de Juegos</h1>
+    <h1>Buscador de Juegos</h1>
 
     <v-card-title>
       <v-text-field
@@ -13,7 +13,7 @@
     </v-card-title>
     <v-data-table
       :headers="headers"
-      :items="$store.state.juegosModule.data"
+      :items="$store.state.games.data"
       :search="search"
     >
       <template v-slot:[`item.nombre`]="{ item }">
@@ -27,7 +27,7 @@
 export default {
   name: "Juegos",
   mounted() {
-    this.$store.dispatch("juegosModule/getAllJuegos");
+    this.$store.dispatch("games/getAllGames");
   },
   data: () => ({
     search: "",

@@ -5,7 +5,7 @@ const delay = (ms) =>
     }, ms);
   });
 
-export const favoritosModule = {
+export const favoritesModule = {
   namespaced: true,
   state: {
     todosLosFavoritos: [],

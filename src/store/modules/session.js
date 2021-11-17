@@ -1,5 +1,5 @@
 import Firebase from "firebase";
-import Router from "../router/index-router";
+import Router from "../../router/index-router";
 
 export const sessionModule = {
   namespaced: true,

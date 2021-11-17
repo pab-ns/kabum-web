@@ -90,7 +90,7 @@ export default {
                 this.form.email, 
                 this.form.password)
                 .then((response) => {
-                    this.$store.dispatch("sessionModule/createNewUser", { email: response.user.email });
+                    this.$store.dispatch("session/createNewUser", { email: response.user.email });
                     Firebase.firestore().collection("usuarios").add({
                         email: this.form.email,
                         name: this.form.name,

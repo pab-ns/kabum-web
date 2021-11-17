@@ -48,12 +48,12 @@ export default {
         .then((json) => (this.temperature = json.temp_c))
     },
     changeTemperature() {
-      this.$store.dispatch('juegosModule/filterByTemperature', this.temperature);
+      this.$store.dispatch('games/filterByTemperature', this.temperature);
     },
   },
   computed: {
     temperatureGamesFilter(){
-      return this.$store.getters['juegosModule/gamesByTemperature']
+      return this.$store.getters['games/gamesByTemperature']
     },
   },
   created() {

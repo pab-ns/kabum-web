@@ -1,6 +1,6 @@
 <template>
   <div>
-    <Destacados />
+    <PopularGames />
     <Info />
     <Api />
 
@@ -8,7 +8,7 @@
       <h1>Todos los Juegos</h1>
       <v-slide-group class="pa-4" show-arrows>
         <v-slide-item
-          v-for="juego in $store.state.juegosModule.data"
+          v-for="juego in $store.state.games.data"
           :key="juego.codigo"
         >
           <GameCard :value="juego" />
@@ -25,7 +25,7 @@
         rounded
         dense
         outlined
-        :value="$store.state.juegosModule.filteredByAbility"
+        :value="$store.state.games.filteredByAbility"
         @input="handleAbilityInput"
       ></v-select>
       <v-slide-group class="pa-4" show-arrows>
@@ -44,7 +44,7 @@
         rounded
         dense
         outlined
-        :value="$store.state.juegosModule.filteredByAge"
+        :value="$store.state.games.filteredByAge"
         @input="handleAgeInput"
       ></v-select>
       <v-slide-group class="pa-4" show-arrows center-active>
@@ -63,7 +63,7 @@
         rounded
         dense
         outlined
-        :value="$store.state.juegosModule.filteredByWeather"
+        :value="$store.state.games.filteredByWeather"
         @input="handleWeatherInput"
       ></v-select>
       <v-slide-group class="pa-4" show-arrows center-active>
@@ -80,7 +80,7 @@ export default {
   name: "Home",
   components: {
     GameCard: () => import("../components/Home/GameCard.vue"),
-    Destacados: () => import("../components/Home/Destacados.vue"),
+    PopularGames: () => import("../components/Home/PopularGames.vue"),
     Info: () => import("../components/Home/Info.vue"),
     Api: () => import("../components/Home/Api.vue"),
   },
@@ -99,28 +99,28 @@ export default {
   }),
   methods: {
     handleAbilityInput(event) {
-      this.$store.dispatch("juegosModule/filterByAbility", event);
+      this.$store.dispatch("games/filterByAbility", event);
     },
     handleAgeInput(event) {
-      this.$store.dispatch("juegosModule/filterByAge", event);
+      this.$store.dispatch("games/filterByAge", event);
     },
     handleWeatherInput(event) {
-      this.$store.dispatch("juegosModule/filterByWeather", event);
+      this.$store.dispatch("games/filterByWeather", event);
     },
   },
   computed: {
     abilityGamesFilter() {
-      return this.$store.getters["juegosModule/gamesByAbility"];
+      return this.$store.getters["games/gamesByAbility"];
     },
     ageGamesFilter() {
-      return this.$store.getters["juegosModule/gamesByAge"];
+      return this.$store.getters["games/gamesByAge"];
     },
     weatherGamesFilter() {
-      return this.$store.getters["juegosModule/gamesByWeather"];
+      return this.$store.getters["games/gamesByWeather"];
     },
   },
   mounted() {
-    this.$store.dispatch("juegosModule/getAllJuegos");
+    this.$store.dispatch("games/getAllJuegos");
   },
 };
 </script>

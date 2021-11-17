@@ -22,7 +22,7 @@ export default {
 
   data: () => ({}),
    mounted() {
-    this.$store.dispatch("sessionModule/subscribeToAuthStateChange");
+    this.$store.dispatch("session/subscribeToAuthStateChange");
   },
 };
 </script>

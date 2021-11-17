@@ -1,6 +1,5 @@
 import Vue from "vue";
 import VueRouter from "vue-router";
-import Home from "../views/Home.vue";
 /* import Store from "../store/sessionModule"; */
 
 Vue.use(VueRouter);
@@ -14,58 +13,45 @@ const routes = [
   {
     path: "/",
     name: "Home",
-    component: Home,
-  },
-  {
-    path: "/about",
-    name: "About",
-    component: () =>
-      import(/* webpackChunkName: "about" */ "../views/About.vue"),
+    component: () => import("../views/Home.vue"),
   },
   {
     path: "/categorias",
     name: "Categorias",
-    component: () => import("../views/Categorias.vue"),
+    component: () => import("../views/Categories.vue"),
     meta: {
       requiredLogin: true,
     },
   },
-  {
-    path: "/admin",
-    name: "Administrador",
-    component: () => import("../views/Admin.vue"),
-  },
-
   {
     path: "/categorias/:id",
     name: "Categorias",
     component: () => import("../views/GamesCategories.vue"),
   },
   {
-    path: "/buscador",
-    name: "Buscador",
-    component: () => import("../views/Buscador.vue"),
+    path: "/admin",
+    name: "Administrador",
+    component: () => import("../views/Admin.vue"),
   },
-
   {
     path: "/admin/:id",
     name: "Edit",
     component: () => import("../views/EditGame.vue"),
   },
   {
-    path: "/juegos",
-    name: "Juegos",
-    component: () => import("../views/juegos.vue"),
+    path: "/buscador",
+    name: "Buscador",
+    component: () => import("../views/SearchGames.vue"),
   },
   {
     path: "/juegos/:id",
     name: "Detallejuego",
-    component: () => import("../views/detallejuego.vue"),
+    component: () => import("../views/GameDetails.vue"),
   },
   {
     path: "/favoritos",
     name: "Favoritos",
-    component: () => import("../views/Favoritos.vue"),
+    component: () => import("../views/Favorites.vue"),
   },
 
 ];

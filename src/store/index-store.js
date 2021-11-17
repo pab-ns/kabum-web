@@ -2,17 +2,17 @@ import Vue from "vue";
 import Vuex from "vuex";
 
 Vue.use(Vuex);
-import { juegosModule } from "./juegosModule";
-import { favoritosModule } from "./favoritosModule";
-import { sessionModule } from "./sessionModule";
+import { gamesModule } from "./modules/games";
+import { favoritesModule } from "./modules/favorites";
+import { sessionModule } from "./modules/session";
 
 export default new Vuex.Store({
   state: {},
   mutations: {},
   actions: {},
   modules: {
-    juegosModule,
-    favoritosModule,
-    sessionModule,
+    session: sessionModule,
+    games: gamesModule,
+    favorites: favoritesModule,
   },
 });
