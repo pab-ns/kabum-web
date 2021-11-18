@@ -10,7 +10,7 @@
       <h1 class="text-center">
         <strong>
           Juegos de mesa para educadores, familias y niños.<br/>
-          ¡Más de 150 juegos en stock!
+          ¡Encuentra tu favorito!
         </strong>
       </h1>
     </v-container>

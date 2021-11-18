@@ -18,8 +18,8 @@ export default {
         to: "/juegos/5A1umf8UGZflg4zdtDEb",
       },
       {
-        src: require("../../assets/banners/banner2.jpg"),
-        to: "/",
+        src: require("../../assets/banners/banner2.2.jpg"),
+        to: "/juegos/nvZB75CO1TCEtrsfSD73",
       },
       {
         src: require("../../assets/banners/banner3.jpg"),

@@ -5,7 +5,7 @@
     <Api />
 
     <div>
-      <h2>Todos los Juegos</h2>
+      <h2>Todos Nuestros Juegos</h2>
       <v-slide-group class="pa-4" show-arrows>
         <v-slide-item
           v-for="juego in $store.state.games.data"
@@ -17,7 +17,7 @@
     </div>
 
     <div>
-      <h2>Buscar Juegos Según Habilidad</h2>
+      <h2>¿Alguna habilidad que quieras reforzar?</h2>
       <v-select
         class="my-5 text-font"
         :items="abilities"
@@ -36,7 +36,7 @@
     </div>
 
     <div>
-      <h2>Buscar Juegos Según Edad</h2>
+      <h2>Un juego perfecto para cada edad</h2>
       <v-select
         class="my-5 text-font"
         :items="ages"
@@ -55,7 +55,7 @@
     </div>
 
     <div>
-      <h2>Buscar Juegos Según Clima</h2>
+      <h2>¡Con frío o calor, siempre es tiempo de divertirse!</h2>
       <v-select
         class="my-5 text-font"
         :items="weather"
