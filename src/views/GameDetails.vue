@@ -42,9 +42,12 @@
           <br />
           <small class="text-font"><strong>Ideal para un día </strong>{{ juego.clima }} </small>
           <br />
-          <button class="pushable mt-6" @click="agregarJuegoAFavorito">
+          <button v-if="$store.state.session.user !== null" class="pushable mt-6" @click="agregarJuegoAFavorito">
             <span class="front">AGREGAR A FAVORITOS</span>
           </button>
+          <div v-else class="mt-6">
+            <h4>Inicia sesión o regístrate para agregar este juego a favoritos</h4>
+          </div>
         </v-col>
       </v-row>
       </div>
