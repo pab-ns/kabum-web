@@ -2,7 +2,7 @@
     <div>
         <v-dialog v-model="registerDialog" width="500">
             <template v-slot:activator="{ on }">
-                <v-btn text v-on="on" color="primary">Crear Cuenta</v-btn>
+                <v-btn text v-on="on" color="primary" class="button-font">Crear Cuenta</v-btn>
             </template>
             <v-card> 
                 <v-card-text>
@@ -11,22 +11,25 @@
                     ref="form"
                     :model="form"
                     lazy-validation>
-                        <v-card-title>Crear Cuenta</v-card-title>
+                        <v-card-title class="text-font">Crear Cuenta</v-card-title>
                         <v-text-field 
+                        class="text-font"
                         outlined 
                         label="Nombre"
                         v-model="form.name"
                         :rules="rules"
                         required
                         ></v-text-field>
-                        <v-text-field 
+                        <v-text-field
+                        class="text-font"
                         outlined 
                         label="Apellido"
                         v-model="form.lastName"
                         :rules="rules"
                         required
                         ></v-text-field>
-                        <v-text-field 
+                        <v-text-field
+                        class="text-font"
                         outlined 
                         label="Correo electrónico"
                         v-model="form.email"
@@ -34,6 +37,7 @@
                         required
                         ></v-text-field>
                         <v-text-field 
+                        class="text-font"
                         outlined 
                         label="Contraseña"
                         v-model="form.password"
@@ -42,6 +46,7 @@
                         required
                         ></v-text-field>
                         <v-text-field 
+                        class="text-font"
                         outlined 
                         label="Repetir Contraseña"
                         v-model="form.repeatPassword"
@@ -49,7 +54,7 @@
                         type="password"
                         required
                         ></v-text-field>
-                        <v-btn color="success" type="submit" @click="registerForm">Crear</v-btn>
+                        <v-btn color="success" class="button-font" type="submit" @click="registerForm">Crear</v-btn>
                     </v-form>
                 </v-card-text>
             </v-card>
@@ -115,5 +120,10 @@ export default {
 </script>
 
 <style>
-
+.text-font {
+    font-family: 'Outfit', sans-serif;
+}
+.button-font {
+    font-family: 'Fredoka One', cursive;
+}
 </style>

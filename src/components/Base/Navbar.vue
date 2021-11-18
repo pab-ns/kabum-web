@@ -1,19 +1,19 @@
 <template>
   <div>
-    <v-app-bar app color="primary" dark>
+    <v-app-bar app color="blue accent-4" dark>
         <router-link to="/">
           <img :src="require('../../assets/kabum.png')" height="30" />
         </router-link>
         <v-spacer></v-spacer>
-        <v-col class="d-none d-md-flex" cols="9">
+        <v-col class="d-none d-md-flex mr-2" cols="9">
           <v-row justify="end">
-            <v-btn color="white" link text v-for="link in links" :key="link.text" router :to="link.route">
+            <v-btn class="link-font" color="white" link text v-for="link in links" :key="link.text" router :to="link.route">
               {{ link.text }}
             </v-btn>
           </v-row>
         </v-col>
         <div v-if="$store.state.session.user !== null">
-            <span>{{ $store.state.session.user.email }}</span>
+            <span class="link-font">{{ $store.state.session.user.email }}</span>
             <v-btn icon @click="logout">
                 <v-icon>mdi-logout</v-icon>
             </v-btn>
@@ -27,7 +27,7 @@
     <v-navigation-drawer v-model="drawer" absolute temporary>
         <v-list nav dense>
             <v-list-item-group v-model="group" active-class="deep-purple--text text--accent-4">
-                <v-list-item v-for="link in links" :key="link.text" router :to="link.route">
+                <v-list-item class="link-font" v-for="link in links" :key="link.text" router :to="link.route">
                     <v-list-item-title>{{ link.text }}</v-list-item-title>
                 </v-list-item>
             </v-list-item-group>
@@ -70,13 +70,13 @@ export default {
       ];
       const user = this.$store.state.session.user
       if (user && this.$store.getters["session/isAdmin"]) {
-        links.push({
+        links.unshift({
           text: "Administrador",
           route: "/admin",
         });
       }
       if (user && this.$store.getters["session/isUser"]) {
-        links.push({
+        links.unshift({
           text: "Favoritos",
           route: "/favoritos",
         });
@@ -87,4 +87,8 @@ export default {
 };
 </script>
 
-<style></style>
+<style scoped>
+.link-font {
+    font-family: 'Fredoka One', cursive;
+}
+</style>

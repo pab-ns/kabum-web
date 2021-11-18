@@ -10,7 +10,7 @@
           max-width="auto"
         ></v-img>
 
-        <v-card-title>
+        <v-card-title class="blue--text text--accent-2 justify-center text-font">
           {{value.nombre}}
         </v-card-title>
 
@@ -19,6 +19,7 @@
             color="orange lighten-2"
             text
             @click="gameDetails(value)"
+            class="text-font"
           >
             Ver juegos
           </v-btn>
@@ -37,7 +38,7 @@
           <div v-show="show">
             <v-divider></v-divider>
 
-            <v-card-text>
+            <v-card-text class="text-font">
               {{value.descripcion}}
             </v-card-text>
           </div>
@@ -60,6 +61,8 @@ export default {
 };
 </script>
 
-<style>
-
+<style scoped>
+.text-font {
+    font-family: 'Outfit', sans-serif;
+}
 </style>

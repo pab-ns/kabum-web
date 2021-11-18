@@ -1,8 +1,8 @@
 <template>
     <v-dialog v-model="show" persistent max-width="600px">
         <v-card>
-            <v-card-title>
-                <span class="text-h5">Agregando Juego</span>
+            <v-card-title class="text-font">
+               Agregando Juego
             </v-card-title>
             <v-card-text>
                 <v-container>
@@ -18,6 +18,7 @@
                         :rules="nameRules"
                         label="Nombre"
                         required
+                        class="text-font"
                         ></v-text-field>
 
                         <v-text-field
@@ -25,6 +26,7 @@
                         :rules="rules"
                         label="Código del juego"
                         required
+                        class="text-font"
                         ></v-text-field>
 
                         <v-text-field
@@ -32,6 +34,7 @@
                         :rules="rules"
                         label="URL de la imagen del juego"
                         required
+                        class="text-font"
                         ></v-text-field>
 
                         <v-textarea
@@ -41,6 +44,7 @@
                         required
                         name="input-7-4"
                         label="Descripción del juego"
+                        class="text-font"
                         ></v-textarea>
 
                         <v-text-field
@@ -49,6 +53,7 @@
                         type="number"
                         label="Min. Jugadores"
                         required
+                        class="text-font"
                         ></v-text-field>
 
                         <v-text-field
@@ -57,6 +62,7 @@
                         type="number"
                         label="Max. Jugadores"
                         required
+                        class="text-font"
                         ></v-text-field>
                         
                         <v-text-field
@@ -65,6 +71,7 @@
                         type="number"
                         label="Tiempo de Juego Mínimo"
                         required
+                        class="text-font"
                         ></v-text-field>
 
                         <v-text-field
@@ -73,6 +80,7 @@
                         type="number"
                         label="Tiempo de Juego Máximo"
                         required
+                        class="text-font"
                         ></v-text-field>
                         
                         <v-text-field
@@ -81,6 +89,7 @@
                         type="number"
                         label="Edad mínima de los jugadores"
                         required
+                        class="text-font"
                         ></v-text-field>
 
                         <v-text-field
@@ -88,6 +97,7 @@
                         :rules="rules"
                         label="1° Categoría del juego"
                         required
+                        class="text-font"
                         ></v-text-field>
 
                         <v-text-field
@@ -95,6 +105,7 @@
                         :rules="rules"
                         label="2° Categoría del juego"
                         required
+                        class="text-font"
                         ></v-text-field>
 
                         <v-text-field
@@ -102,6 +113,7 @@
                         :rules="rules"
                         label="1° Habilidad que fomenta el juego"
                         required
+                        class="text-font"
                         ></v-text-field>
 
                         <v-text-field
@@ -109,6 +121,7 @@
                         :rules="rules"
                         label="2° Habilidad que fomenta el juego"
                         required
+                        class="text-font"
                         ></v-text-field>
 
                         <v-text-field
@@ -116,6 +129,7 @@
                         :rules="rules"
                         label="Clima ideal para el juego"
                         required
+                        class="text-font"
                         ></v-text-field>
 
                         <v-text-field
@@ -124,6 +138,7 @@
                         type="number"
                         label="Stock del juego"
                         required
+                        class="text-font"
                         ></v-text-field>
 
                         <v-text-field
@@ -132,12 +147,13 @@
                         type="number"
                         label="Precio del juego"
                         required
+                        class="text-font"
                         ></v-text-field>
 
                         <div class="text-center">
                             <v-btn
                             color="success"
-                            class="ma-2"
+                            class="ma-2 button-font"
                             @click="addGame"
                             @click.stop="show=false"
                             >
@@ -146,7 +162,7 @@
 
                             <v-btn
                             color="error"
-                            class="ma-2"
+                            class="ma-2 button-font"
                             @click="reset"
                             >
                             Limpiar Formulario
@@ -154,7 +170,7 @@
 
                             <v-btn
                             color="warning"
-                            class="ma-2"
+                            class="ma-2 button-font"
                             @click="resetValidation"
                             >
                             Limpiar Validación
@@ -166,7 +182,7 @@
             </v-card-text>
             <v-card-actions>
                 <v-spacer></v-spacer>
-                <v-btn color="blue darken-1" text @click.stop="show=false">
+                <v-btn color="blue darken-1" class="button-font" text @click.stop="show=false">
                     Cerrar
                 </v-btn>
             </v-card-actions>
@@ -231,3 +247,12 @@ export default {
     },
 }
 </script>
+
+<style scoped>
+.text-font {
+    font-family: 'Outfit', sans-serif;
+}
+.button-font {
+    font-family: 'Fredoka One', cursive;
+}
+</style>

@@ -1,7 +1,7 @@
 <template>
     <div>
-        <h1>Categoría: {{ categoria.nombre }} </h1>
-        <p>{{ categoria.descripcion }} </p>
+        <h1 class="text-center my-3">Categoría: {{ categoria.nombre }} </h1>
+        <p class="text-center text-font">{{ categoria.descripcion }} </p>
         <v-row class="my-5">
             <v-col v-for="game in categoryGamesFilter" :key="game.codigo" cols="12" sm="3" md="4">
                 <CategoryGameCard :value="game"/>
@@ -49,6 +49,11 @@ export default {
 }
 </script>
 
-<style>
-
+<style scoped>
+.text-font {
+    font-family: 'Outfit', sans-serif;
+}
+p {
+    font-size: 20px;
+}
 </style>

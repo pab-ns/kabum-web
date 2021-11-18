@@ -2,13 +2,13 @@
   <div>
     <v-container>
       <v-layout row>
-        <v-col cols="3">
-          <v-img :contain="true" :src="juego.img"></v-img>
+        <v-col sm="3">
+          <v-img :contain="true" :src="juego.img" @click="gameDetails(juego)"></v-img>
         </v-col>
-        <v-col cols="9" class="mt-16">
-          <h1>{{ juego.nombre }}</h1>
-          <h2>$ {{ juego.precio.toLocaleString("de-DE") }}</h2>
-          <p><strong>Cantidad:</strong> {{ juego.cantidad }}</p>
+        <v-col sm="9" class="">
+          <h2>{{ juego.nombre }}</h2>
+          <h3 class="orange--text text--lighten-1">$ {{ juego.precio.toLocaleString("de-DE") }}</h3>
+          <p class="text-font"><strong>Cantidad:</strong> {{ juego.cantidad }}</p>
           <div>
             <v-btn
               color="orange"
@@ -32,12 +32,10 @@
             </v-btn>
           </div>
           <br />
-          <small>
-            <strong
-              >Subtotal: ${{
-                (juego.cantidad * juego.precio).toLocaleString("de-DE")
-              }}</strong
-            >
+          <small class="text-font">
+            <strong>
+              Subtotal: ${{ (juego.cantidad * juego.precio).toLocaleString("de-DE")}}
+            </strong>
           </small>
         </v-col>
       </v-layout>
@@ -52,7 +50,16 @@ export default {
   props: {
     juego: { type: Object, required: true },
   },
+  methods: {
+    gameDetails(juego) {
+      this.$router.push(`/juegos/${juego.id}`);
+    },
+  },
 };
 </script>
 
-<style></style> 
+<style>
+.text-font {
+    font-family: 'Outfit', sans-serif;
+}
+</style> 

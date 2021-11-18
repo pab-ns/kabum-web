@@ -1,11 +1,11 @@
 <template>
   <div>
-    <PopularGames />
+    <PopularGames/>
     <Info />
     <Api />
 
     <div>
-      <h1>Todos los Juegos</h1>
+      <h2>Todos los Juegos</h2>
       <v-slide-group class="pa-4" show-arrows>
         <v-slide-item
           v-for="juego in $store.state.games.data"
@@ -19,7 +19,7 @@
     <div>
       <h2>Buscar Juegos Según Habilidad</h2>
       <v-select
-        class="my-5"
+        class="my-5 text-font"
         :items="abilities"
         label="Buscar por habilidad"
         rounded
@@ -38,7 +38,7 @@
     <div>
       <h2>Buscar Juegos Según Edad</h2>
       <v-select
-        class="my-5"
+        class="my-5 text-font"
         :items="ages"
         label="Buscar por edad"
         rounded
@@ -57,7 +57,7 @@
     <div>
       <h2>Buscar Juegos Según Clima</h2>
       <v-select
-        class="my-5"
+        class="my-5 text-font"
         :items="weather"
         label="Buscar por clima"
         rounded
@@ -124,3 +124,9 @@ export default {
   },
 };
 </script>
+
+<style scoped>
+.text-font {
+    font-family: 'Outfit', sans-serif;
+}
+</style>

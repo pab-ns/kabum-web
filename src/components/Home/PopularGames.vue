@@ -1,14 +1,16 @@
 <template>
-  <v-carousel cycle height="auto" hide-delimiter-background show-arrows-on-hover>
-    <router-link v-for="(item, i) in items" :key="i" link :to="item.to">
-      <v-carousel-item :src="item.src"> </v-carousel-item>
-    </router-link>
-  </v-carousel>
+  <v-row >
+      <v-carousel height="auto" cycle hide-delimiter-background show-arrows-on-hover>
+        <router-link v-for="(item, i) in items" :key="i" link :to="item.to">
+          <v-carousel-item :src="item.src"> </v-carousel-item>
+        </router-link>
+      </v-carousel>
+  </v-row>
 </template>
 
 <script>
 export default {
-  name: "Destacados",
+  name: "PopularGames",
   data: () => ({
     items: [
       {
@@ -28,4 +30,6 @@ export default {
 };
 </script>
 
-<style></style>
+<style>
+
+</style>

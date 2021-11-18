@@ -1,13 +1,12 @@
 <template>
   <div>
     <v-container fluid>
-      <h2 class="text-center blue--text font-weight-bold">
+      <h3 class="text-center">
         En tu ciudad, actualmente, está
-        <span class="orange--text">{{ ciudad.wx_desc }}</span> con una
-        temperatura de <span class="orange--text">{{ temperature }}ºC</span>.
-        <br />
-        Recomendamos los siguientes juegos:
-      </h2>
+        <span class="orange--text text--lighten-1">{{ ciudad.wx_desc }}</span> con una
+        temperatura de <span class="orange--text text--lighten-1">{{ temperature }}ºC</span>.
+        Te recomendamos los siguientes juegos:
+      </h3>
       <v-slide-group class="pa-4" show-arrows>
         <v-slide-item v-for="game in temperatureGamesFilter" :key="game.codigo">
           <GameCard :value="game" />

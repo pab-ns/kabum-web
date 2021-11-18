@@ -1,7 +1,7 @@
 <template>
   <v-container>
         <v-card
-          class="ma-4 align text-center"
+          class="ma-4 align text-center pb-4"
           @click="gameDetails(value)"
         >
             <v-img
@@ -10,10 +10,10 @@
             :src="value.img"
             >
             </v-img>
-            <v-card-title class="font-weight-medium pt-2 pb-0 justify-center">
+            <v-card-title class="font-weight-medium pt-2 pb-0 justify-center blue--text text--accent-2 text-font">
               {{ value.nombre }}
             </v-card-title>
-            <v-card-text class="orange--text lighten-2--text py-2">
+            <v-card-text class="orange--text lighten-2--text py-2 text-font">
               ${{ value.precio.toLocaleString('de-DE') }}
             </v-card-text>
         </v-card>
@@ -33,3 +33,9 @@ export default {
     }
 }
 </script>
+
+<style scoped>
+.text-font {
+    font-family: 'Outfit', sans-serif;
+}
+</style>

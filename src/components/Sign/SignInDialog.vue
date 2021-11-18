@@ -1,7 +1,7 @@
 <template>
 <v-dialog v-model="dialog" width="500">
     <template v-slot:activator="{ on }">
-        <v-btn text depressed v-on="on">
+        <v-btn text depressed v-on="on" class="button-font">
             Iniciar Sesión
             <v-icon>mdi-login</v-icon>
         </v-btn>
@@ -12,8 +12,9 @@
             ref="form"
             :model="form"
             lazy-validation>
-                <v-card-title>Iniciar Sesión</v-card-title>
-                <v-text-field 
+                <v-card-title class="text-font">Iniciar Sesión</v-card-title>
+                <v-text-field
+                class="text-font"
                 outlined 
                 label="Correo electrónico"
                 v-model="form.email"
@@ -21,7 +22,8 @@
                 type="email"
                 name="email"
                 ></v-text-field>
-                <v-text-field 
+                <v-text-field
+                class="text-font"
                 outlined 
                 label="Contraseña"
                 :counter="20"
@@ -33,7 +35,7 @@
             </v-form>
             <br>
             <v-row align="center" justify="space-around" class="mx-1 mb-3">
-                <v-btn color="success" type="submit" @click="loginForm">Entrar</v-btn>
+                <v-btn color="success" class="button-font" type="submit" @click="loginForm">Entrar</v-btn>
                 <v-spacer></v-spacer>
                 <RegisterDialog />
             </v-row>
@@ -78,6 +80,11 @@ export default {
 }
 </script>
 
-<style>
-
+<style scoped>
+.text-font {
+    font-family: 'Outfit', sans-serif;
+}
+.button-font {
+    font-family: 'Fredoka One', cursive;
+}
 </style>

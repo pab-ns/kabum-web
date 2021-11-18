@@ -1,19 +1,19 @@
 <template>
     <div>
-        <h1 class="display-3 my-5 text-center">Administrador de Juegos</h1>
-        <div class="text-center my-5">
-            <v-btn depressed color="primary" @click.stop="showAddGame=true">
-                Agregar juego
-            </v-btn> 
+        <h1 class="text-center mt-3">Administrador de Juegos</h1>
+        <div class="text-center mt-3 mb-5">
+            <button class="pushable" @click.stop="showAddGame=true">
+                <span class="front">AGREGAR JUEGO</span>
+            </button>
         </div> 
-        <AddGameModal v-model="showAddGame" />
+        <AddGameModal v-model="showAddGame" /> 
         <v-data-table
-        
         :headers="headers"
         :items="$store.state.games.data"
+        class="text-font"
         >
             <template v-slot:[`item.nombre`]="{ item }">
-                <v-chip @click="gameDetails(item)">{{ item.nombre }}</v-chip>
+                <v-chip color="orange lighten-3" @click="gameDetails(item)">{{ item.nombre }}</v-chip>
             </template>
 
             <template v-slot:[`item.categoria`]="{ item }">
@@ -108,4 +108,8 @@ export default {
 };
 </script>
 
-<style></style>
+<style>
+.text-font {
+    font-family: 'Outfit', sans-serif;
+}
+</style>

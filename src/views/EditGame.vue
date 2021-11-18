@@ -1,10 +1,11 @@
 <template>
   <v-container>
-    <h1 class="display-3 text-center my-5">
+    <h1 class="text-center my-3">
       Editando el juego: {{ game.nombre }}
     </h1>
     <v-form ref="form" lazy-validation>
       <v-text-field
+        class="text-font"
         v-model="game.nombre"
         :counter="40"
         :rules="nameRules"
@@ -13,6 +14,7 @@
       ></v-text-field>
 
       <v-text-field
+        class="text-font"
         v-model="game.codigo"
         :rules="rules"
         label="Código del juego"
@@ -20,6 +22,7 @@
       ></v-text-field>
 
       <v-text-field
+        class="text-font"
         v-model="game.img"
         :rules="rules"
         label="URL de la imagen del juego"
@@ -27,6 +30,7 @@
       ></v-text-field>
 
       <v-textarea
+        class="text-font"
         v-model="game.descripcion"
         :rules="rules"
         outlined
@@ -36,6 +40,7 @@
       ></v-textarea>
 
       <v-text-field
+        class="text-font"
         v-model.number="game.jugadores[0]"
         :rules="rules"
         type="number"
@@ -44,6 +49,7 @@
       ></v-text-field>
 
       <v-text-field
+        class="text-font"
         v-model.number="game.jugadores[1]"
         :rules="rules"
         type="number"
@@ -52,6 +58,7 @@
       ></v-text-field>
 
       <v-text-field
+        class="text-font"
         v-model.number="game.duracion[0]"
         :rules="rules"
         type="number"
@@ -60,6 +67,7 @@
       ></v-text-field>
 
       <v-text-field
+        class="text-font"
         v-model.number="game.duracion[1]"
         :rules="rules"
         type="number"
@@ -68,6 +76,7 @@
       ></v-text-field>
 
       <v-text-field
+        class="text-font"
         v-model.number="game.edadmin"
         :rules="rules"
         type="number"
@@ -76,6 +85,7 @@
       ></v-text-field>
 
       <v-text-field
+        class="text-font"
         v-model="game.categoria[0]"
         :rules="rules"
         label="1° Categoría del juego"
@@ -83,6 +93,7 @@
       ></v-text-field>
 
       <v-text-field
+        class="text-font"
         v-model="game.categoria[1]"
         :rules="rules"
         label="2° Categoría del juego"
@@ -90,6 +101,7 @@
       ></v-text-field>
 
       <v-text-field
+        class="text-font"
         v-model="game.habilidad[0]"
         :rules="rules"
         label="1° Habilidad que fomenta el juego"
@@ -97,6 +109,7 @@
       ></v-text-field>
 
       <v-text-field
+        class="text-font"
         v-model="game.habilidad[1]"
         :rules="rules"
         label="2° Habilidad que fomenta el juego"
@@ -104,6 +117,7 @@
       ></v-text-field>
 
       <v-text-field
+        class="text-font"
         v-model="game.clima"
         :rules="rules"
         label="Clima ideal para el juego"
@@ -111,6 +125,7 @@
       ></v-text-field>
 
       <v-text-field
+        class="text-font"
         v-model="game.stock"
         :rules="rules"
         type="number"
@@ -119,6 +134,7 @@
       ></v-text-field>
 
       <v-text-field
+        class="text-font"
         v-model.number="game.precio"
         :rules="rules"
         type="number"
@@ -127,17 +143,17 @@
       ></v-text-field>
 
       <div class="text-center">
-        <v-btn color="success" class="ma-2" @click="editGame"> Editar </v-btn>
+        <v-btn color="success" class="ma-2 button-font" @click="editGame"> Editar </v-btn>
 
-        <v-btn color="error" class="ma-2" @click="reset">
+        <v-btn color="error" class="ma-2 button-font" @click="reset">
           Limpiar Formulario
         </v-btn>
 
-        <v-btn color="warning" class="ma-2" @click="resetValidation">
+        <v-btn color="warning" class="ma-2 button-font" @click="resetValidation">
           Limpiar Validación
         </v-btn>
 
-        <v-btn class="ma-2" color="primary" @click="backToAdmin">
+        <v-btn class="ma-2 button-font" color="primary" @click="backToAdmin">
           Regresar
         </v-btn>
       </div>
@@ -190,3 +206,12 @@ export default {
   },
 };
 </script>
+
+<style scoped>
+.text-font {
+    font-family: 'Outfit', sans-serif;
+}
+.button-font {
+    font-family: 'Fredoka One', cursive;
+}
+</style>

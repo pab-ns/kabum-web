@@ -1,40 +1,53 @@
 <template> 
-  <div>
-    <!--<h1>Detalle Juego: {{ $route.params.id }}</h1>-->
     <v-container>
-      <v-layout row>
-        <v-col cols="6">
+      <div class="my-5">
+      <v-row>
+        <v-col sm="6">
           <v-img :contain="true" :src="juego.img"></v-img>
         </v-col>
-        <v-col cols="6" class="mt-16">
+        <v-col sm="6" class="my-5">
           <h1>{{ juego.nombre }}</h1>
-          <h2>$ {{ juego.precio.toLocaleString("de-DE") }}</h2>
-          <!-- <h2>$ {{ juego.precio }}</h2> -->
-          <br />
-          <p>{{ juego.descripcion }}</p>
-          <small>
+          <h3 class="orange--text text--lighten-1">$ {{ juego.precio.toLocaleString("de-DE") }}</h3>
+          <p class="mt-2 text-font">{{ juego.descripcion }}</p>
+          <small class="text-font">
             <strong>Jugadores: </strong>
-            <span
-              >Min: {{ juego.jugadores[0] }} | Max: {{ juego.jugadores[1] }}
+            <span>
+              Min: {{ juego.jugadores[0] }} | Max: {{ juego.jugadores[1] }}
             </span>
           </small>
           <br />
-          <small>
-            <strong>Categoría(s): </strong>{{ juego.categoria[0] }}-{{
-              juego.categoria[1]
-            }}</small
-          >
+          <small class="text-font">
+            <strong>Edad mínima: </strong>
+            <span>
+              {{ juego.edadmin }} años
+            </span>
+          </small>
           <br />
-          <small> <strong>Ideal para un día </strong>{{ juego.clima }} </small>
+          <small class="text-font">
+            <strong>Tiempo de juego: </strong>
+            <span>
+              {{ juego.duracion[0] }}-{{ juego.duracion[1] }} min
+            </span>
+          </small>
           <br />
-          <small> <strong>Código: </strong>{{ juego.codigo }} </small>
+          <small class="text-font">
+            <strong>Categorías: </strong>
+            {{ juego.categoria[0] }}-{{ juego.categoria[1] }}
+          </small>
           <br />
+          <small class="text-font">
+            <strong>Habilidades: </strong>
+            {{ juego.habilidad[0] }}-{{juego.habilidad[1]}}
+          </small>
           <br />
-          <v-btn color="primary" large @click="agregarJuegoAFavorito">
-            Agregar a Favoritos
-          </v-btn>
+          <small class="text-font"><strong>Ideal para un día </strong>{{ juego.clima }} </small>
+          <br />
+          <button class="pushable mt-6" @click="agregarJuegoAFavorito">
+            <span class="front">AGREGAR A FAVORITOS</span>
+          </button>
         </v-col>
-      </v-layout>
+      </v-row>
+      </div>
 
       <!-- modal agregado a favorito -->
       <div>
@@ -42,23 +55,18 @@
           <v-card>
             <v-container>
               <v-card-text>
-                <h2 class="text-center">Producto agregado a Favoritos</h2>
+                <h3 class="text-center">Producto agregado a Favoritos</h3>
               </v-card-text>
               <v-row class="ma-3 justify-space-around">
-                <v-btn
-                  color="orange"
-                  class="align-self-center zoom white--text"
-                  @click="JuegoAgregadoAFavorito = false"
-                >
-                  OK
-                </v-btn>
+                <button class="align-self-center zoom pushable mt-2" @click="JuegoAgregadoAFavorito = false">
+                  <span class="front">OK</span>
+                </button>
               </v-row>
             </v-container>
           </v-card>
         </v-dialog>
       </div>
     </v-container>
-  </div>
 </template>
 
 <script>
@@ -91,4 +99,8 @@ export default {
 };
 </script>
 
-<style></style>
+<style scoped>
+.text-font {
+    font-family: 'Outfit', sans-serif;
+}
+</style>
