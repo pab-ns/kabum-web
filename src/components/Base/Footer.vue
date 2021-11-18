@@ -1,7 +1,7 @@
 <template>
-  <v-footer app dark padless>
+  <v-footer app dark padless absolute>
     <v-card class="flex" flat tile>
-      <v-card-title class="primary">
+      <v-card-title class="blue accent-4">
         <v-img src="../../assets/kabum.png" max-width="125" />
 
         <v-spacer></v-spacer>
@@ -13,8 +13,8 @@
         </v-btn>
       </v-card-title>
 
-      <v-card-text class="orange py-2 white--text text-center">
-        {{ new Date().getFullYear() }} — <strong>Vuetify</strong>
+      <v-card-text class="orange lighten-1 py-2 white--text text-center text-font">
+        {{ new Date().getFullYear() }} - <strong>KABUM!</strong>
       </v-card-text>
     </v-card>
   </v-footer>
@@ -29,4 +29,8 @@ export default {
 };
 </script>
 
-<style></style>
+<style scoped>
+.text-font {
+    font-family: 'Outfit', sans-serif;
+}
+</style>
